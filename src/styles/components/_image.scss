@@ -1,0 +1,57 @@
+
+.haut {
+  display: flex;
+  flex-direction: row;
+  height: 190px;
+  width: 900px;  
+}
+
+.droite {
+  width: 600px;
+}
+
+.milieu {
+  margin-bottom: 50px;
+}
+
+.bas {
+  margin-top: 30px;
+  
+}
+
+.warning {
+    font-size: 20px;
+    color: red;
+    font-style:italic;
+    font-weight: bold;
+}
+
+.infos {
+  font-size: 20px;
+  color:black;
+}
+
+.logos {
+
+  flex-grow: 1;
+
+    #logo_linkedin {
+
+        margin-top: 25px;
+        width: 60px;
+        height: 60px;
+      
+      }
+    
+    #linkedin {
+
+        width: 250px;
+        height: 100px;
+        margin:auto;    
+        display: block;
+        margin-right: 0px;
+        // position:absolute;
+        // margin-right:0px;
+        
+      }
+}
