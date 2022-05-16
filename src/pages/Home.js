@@ -49,7 +49,7 @@ const Home = () => {
                         Voulez-vous vraiment vous désabonner ?
                     </p>
                     <p className='infos'>
-                        Cela engendrera l'ârret des mails promotionnels. 
+                        Cela engendrera l'arrêt des mails promotionnels. 
                     </p>
                 </Container>
             )
