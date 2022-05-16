@@ -97,6 +97,7 @@ const Home = () => {
                             onChange={(e) => setEmail(e.target.value)}
                             placeholder="exemple@gmail.com"
                         />
+                        <br/>
                         </Form.Group>
                         <Form.Group size="lg" controlId="password">
                         <Form.Label>Mot de passe</Form.Label>
