@@ -5,6 +5,7 @@ import { BrowserRouter, Switch, Route} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css';
 
 import Home from "./pages/Home";
+import Login from "./pages/Login";
 import Sucess from './pages/Sucess';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Switch>
 
             <Route exact path='/' component={Home} />
+            <Route exact path='/login' component={Login} />
             <Route exact path='/sucess' component={Sucess} />
 
             {/* <Route exact component={NotFound}/> */}
