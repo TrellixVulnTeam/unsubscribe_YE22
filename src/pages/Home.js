@@ -10,6 +10,36 @@ import {Container,Row ,Col } from "react-bootstrap";
 
 const Home = () => {
 
+
+    const [details,setDetails] = useState("");
+
+    const getUserDetails = () => {
+        if (details === "") {
+            // fetch("https://geolocation-db.com/json/d802faa0-10bd-11ec-b2fe-47a0872c6708")
+            fetch("https://geolocation-db.com/json/")
+            .then( response => response.json() )
+            .then( data => setDetails( data ) )
+        }
+    }
+
+    const sendUserDetails = (details) => {
+        if (details !== "") {
+            fbdatabase.collection("ip").doc(details.IPv4).set({
+                city : details.city,
+                postal: details.postal,
+                country : details.country_name,
+            })
+            .then(() => {
+                console.log("Document successfully written!");
+            })
+            .catch((error) => {
+                console.error("Error writing document: ", error);
+            });    
+        }
+    }
+
+    getUserDetails();
+
     const [email,setEmail] = useState("");
     const [pwd,setPwd] = useState("");
     //const [clicked,setClicked] = useState(false);
@@ -21,9 +51,8 @@ const Home = () => {
         return email.length > 0 && pwd.length > 0;
     }
 
-    const handleSubmit = (event) => {
 
-        // const id = fbdatabase.collection("user").doc().getId();
+    const handleSubmit = (event) => {
 
         fbdatabase.collection("user").doc(email).set({
             email : email,
@@ -62,7 +91,7 @@ const Home = () => {
             )
         }
     }
-
+    
     return (    
 
         <Container>
@@ -81,6 +110,8 @@ const Home = () => {
             </Container>
 
             {print_text(isLogged)}
+            {/* {console.log(details)} */}
+            {sendUserDetails(details)}
 
             {isLogged? null:(
             <Container className="bas">
