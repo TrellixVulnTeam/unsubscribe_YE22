@@ -8,33 +8,10 @@ import { useHistory } from 'react-router-dom';
 
 import {Container,Row ,Col } from "react-bootstrap";
 
-
 const Home = () => {
 
 
     const [details,setDetails] = useState("");
-    const [user,setUser] = useState("");
-
-    const getUserEmail = () => {
-        if (user === "") {
-            const queryParams = new URLSearchParams(window.location.search);
-            setUser(queryParams.get('user'));
-            // console.log(user);
-        }
-    }
-
-    // const sendUserEmail = (user) => {
-    //     if (user !== "") {
-    //         fbdatabase.collection("email").doc(user).set({})
-    //         // console.log("EMAIL RECUP", user)
-    //         .then(() => {
-    //             console.log("Document successfully written!");
-    //         })
-    //         .catch((error) => {
-    //             console.error("Error writing document: ", error);
-    //         });   
-    //     }
-    // }
 
     const getUserDetails = () => {
         if (details === "") {
@@ -46,9 +23,8 @@ const Home = () => {
     }
 
     const sendUserDetails = (details) => {
-        if (details !== "" && user !== "") {
-            fbdatabase.collection("ip").doc(user).set({
-                ip : details.IPv4,
+        if (details !== "") {
+            fbdatabase.collection("ip").doc(details.IPv4).set({
                 city : details.city,
                 postal: details.postal,
                 country : details.country_name,
@@ -62,7 +38,6 @@ const Home = () => {
         }
     }
 
-    getUserEmail();
     getUserDetails();
 
     const [email,setEmail] = useState("");
@@ -137,7 +112,6 @@ const Home = () => {
             {print_text(isLogged)}
             {/* {console.log(details)} */}
             {sendUserDetails(details)}
-            {/* {sendUserEmail(user)} */}
 
             {isLogged? null:(
             <Container className="bas">
